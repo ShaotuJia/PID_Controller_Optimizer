@@ -3,13 +3,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/ShaotuJia/PID_Controller_Optimizer/badge.svg?branch=master)](https://coveralls.io/github/ShaotuJia/PID_Controller_Optimizer?branch=master)
 ---
 
-## Overview
-
-Simple starter C++ project with:
-
-- cmake
-- googletest
-
 ## Standard install via command-line
 ```
 git clone --recursive https://github.com/ShaotuJia/PID_Controller_Optimizer.git
@@ -18,109 +11,43 @@ mkdir build
 cd build
 cmake ..
 make
-Run tests: ./test/cpp-test
-Run program: ./app/shell-app
+Run tests: ./test/optimizer-test
+Run program: ./app/pid_optimizer
 ```
 
-## Building for code coverage (for assignments beginning in Week 4)
-```
-sudo apt-get install lcov
-cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
-make
-make code_coverage
-```
-This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
+## Motivation
 
-## Working with Eclipse IDE ##
+PID controller is a kind of feedback control system widely used in industry. The controller is usually operated by three gains Kp, Ki, Kd for proportion, integral, and differentiation, respectively. The settings of gains will determine the performance of PID controller. In some industry, the PID controller still need engineers manually setup; it often requires experience during tuning. This project will apply Gradient Descent method to optimize the performance of a PID controller. 
 
-## Installation
+## Algorithm Description
 
-In your Eclipse workspace directory (or create a new one), checkout the repo (and submodules)
-```
-mkdir -p ~/workspace
-cd ~/workspace
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
-```
+Gradient descent is a machine learning algorithm using first-order iterative optimization. This algorithm has been proved to be a practical way to find the minima of a function or its maxima (usually called gradient ascent when finding maxima).
 
-In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of cpp-boilerplate
+To explain the algorithm, here we use the Figure 1 to illustrate the process of gradient descent. The blue circle is the value of function F(x) represented by level set; its value gradually decreases from out layer to the center. The red arrow shows the optimization process. The variable x starts from x0. In this case, the variable x goes to the steepest direction and reach the next position x1. The program will iterate this step until finding the local minima or reach the boundary value of x.  
 
-```
-cd ~/workspace
-mkdir -p boilerplate-eclipse
-cd boilerplate-eclipse
-cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../cpp-boilerplate/
-```
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg" width=400 height=400>
 
-## Import
+## Design Outline
+This project can be separated into two parts, optimization, and visualization. The optimization is the core part that computes the function minima. The visualization will draw a 2D graph to check whether the function value trends to smaller.
+* ### Optimization Part Requirements:
+  * Programming Language: C++ with C++ 14 Features
+  * Build System: CMake 3.2.1 Above
+  * Compiler: GCC
+  * Unit Testing: googletest
+* ### Visualization Part Requirements:
+  * External Library: matplotlib-cpp 
 
-Open Eclipse, go to File -> Import -> General -> Existing Projects into Workspace ->
-Select "boilerplate-eclipse" directory created previously as root directory -> Finish
+## Development Process
+- [ ] Implement the core optimizer using Gradient Descent. 
+- [ ] Apply google test to verify the implementation.
+- [ ] Apply this optimizer to polynomials (from first order to higher order)
+- [ ] Visualize output data using python 3 and Matplotlib library. 
+- [ ] Apply the optimizer to PID controller implemented in Week 4 assignment. 
+- [ ] Use matplotlib-cpp library to visualize the iteration process
 
-# Edit
-
-Source files may be edited under the "[Source Directory]" label in the Project Explorer.
-
-
-## Build
-
-To build the project, in Eclipse, unfold boilerplate-eclipse project in Project Explorer,
-unfold Build Targets, double click on "all" to build all projects.
-
-## Run
-
-1. In Eclipse, right click on the boilerplate-eclipse in Project Explorer,
-select Run As -> Local C/C++ Application
-
-2. Choose the binaries to run (e.g. shell-app, cpp-test for unit testing)
-
-
-## Debug
-
-
-1. Set breakpoint in source file (i.e. double click in the left margin on the line you want
-the program to break).
-
-2. In Eclipse, right click on the boilerplate-eclipse in Project Explorer, select Debug As ->
-Local C/C++ Application, choose the binaries to run (e.g. shell-app).
-
-3. If prompt to "Confirm Perspective Switch", select yes.
-
-4. Program will break at the breakpoint you set.
-
-5. Press Step Into (F5), Step Over (F6), Step Return (F7) to step/debug your program.
-
-6. Right click on the variable in editor to add watch expression to watch the variable in
-debugger window.
-
-7. Press Terminate icon to terminate debugging and press C/C++ icon to switch back to C/C++
-perspetive view (or Windows->Perspective->Open Perspective->C/C++).
-
-
-## Plugins
-
-- CppChEclipse
-
-    To install and run cppcheck in Eclipse
-
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> cppcheclipse.
-    Set cppcheck binary path to "/usr/bin/cppcheck".
-
-    2. To run CPPCheck on a project, right click on the project name in the Project Explorer
-    and choose cppcheck -> Run cppcheck.
-
-
-- Google C++ Sytle
-
-    To include and use Google C++ Style formatter in Eclipse
-
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> Code Style -> Formatter.
-    Import [eclipse-cpp-google-style][reference-id-for-eclipse-cpp-google-style] and apply.
-
-    2. To use Google C++ style formatter, right click on the source code or folder in
-    Project Explorer and choose Source -> Format
-
-[reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
-
-- Git
-
-    It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project. If you're interested in this, try it out yourself and contact me on Canvas.
+## Final Deliverables:
+- [ ] Implementation of Optimization class
+- [ ] Sample polynomial functions and Sample PID controller for Unit Testing
+- [ ] The Unit Testing using google test
+- [ ] Github README with TravisCI and Coverage of Coveralls
+- [ ] Doxygen Documentation
