@@ -3,6 +3,10 @@
 [![Coverage Status](https://coveralls.io/repos/github/ShaotuJia/PID_Controller_Optimizer/badge.svg?branch=master)](https://coveralls.io/github/ShaotuJia/PID_Controller_Optimizer?branch=master)
 ---
 
+# Enacting and Measuring SIP
+The product log, time log, and defect log are written in google sheet. [click_here](https://docs.google.com/spreadsheets/d/1u9WEmkIhlhbIRRlmwj4HqYvlbm0llhUNIEqe1h8LvHQ/edit?usp=sharing)
+
+
 ## Standard install via command-line
 ```
 git clone --recursive https://github.com/ShaotuJia/PID_Controller_Optimizer.git
