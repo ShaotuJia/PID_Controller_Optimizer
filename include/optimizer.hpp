@@ -1,6 +1,7 @@
 /**
- * @breif: This is the header file for optimizer class which
+ * @brief: This is the header file for optimizer class which
  * applies Simuluated Annealing
+ * @file PID.hpp
  * @author: Shaotu Jia
  * @copyright: SHAOTU JIA. All right reserved.
  */
