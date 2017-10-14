@@ -1,8 +1,10 @@
-#include <iostream>
-#include <lib.hpp>
+/**
+ * @copyright: Copyright [2017] <SHAOTU JIA> All Right Reserved.
+ */
 
-int main()
-{
-    dummy();
+
+#include <iostream>
+
+int main() {
     return 0;
 }

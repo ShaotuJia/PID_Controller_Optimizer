@@ -3,16 +3,17 @@
  * applies Simuluated Annealing
  * @file PID.hpp
  * @author: Shaotu Jia
- * @copyright: SHAOTU JIA. All right reserved.
+ * @copyright: Copyright [2017] <SHAOTU JIA> All right reserved.
  */
 
- #ifndef OPTIMIZER_HPP
- #define OPTIMIZER_HPP
+ #ifndef _OPTIMIZER_HPP
+ #define _OPTIMIZER_HPP
 
 #include <vector>
+#include <memory>
 #include "PID.hpp"
 
-class Optimizer: public PID {
+class Optimizer {
  private:
      double kp = 0;
      double ki = 0;
@@ -29,15 +30,17 @@ class Optimizer: public PID {
      std::vector<double> anneal();
  public:
      // initialize the std::vector<double> state
+     //Optimizer(){};
      void initial_state(const double& kp, const double& ki, const double& kd);
      void set_step(const double& length);
      void set_T(const double& max, const double& min);
-     ~Optimizer();
+     int int_rand(int low, int up);
+
+     //auto controller = std::make_unique<PID>(6);        // Create object for PID class
+
+     //~Optimizer();
 
 };
-
-
-
 
 
 
