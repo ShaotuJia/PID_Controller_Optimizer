@@ -1,6 +1,6 @@
 /**
+ * @file PID.cpp
  * @Brief This is the source file for class PID
- * @file PID.hpp This is the header file of PID class
  * @copyright, Shaotu Jia, All rights reserved
  */
 

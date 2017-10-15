@@ -1,15 +1,34 @@
 /**
- * @brief: Unit Testing for every class
- * @copyright: Copyright [2017] <SHAOTU JIA> All Right Reserved
+ * @file test.cpp
+ * @brief Unit Testing for every class
+ * @copyright Copyright [2017] <SHAOTU JIA> All Right Reserved
  */
 
 
 #include <gtest/gtest.h>
 #include <memory>
-
 #include "optimizer.hpp"
+#include "PID.hpp"
 
 
+/**
+ * @brief The following test is to test the final output of the function
+ */
+TEST(PIDTest, ComputationTest) {
+  double input = 1;   ///< Input value for setpoint
+  auto p = std::make_unique<PID>(input);
+  /**
+   * !!! change the tuning parameter to pass the last test !!
+   */
+  p->tuning(0.1, 0.1, 0.1);
+  p->compute();
+  EXPECT_LT(std::abs(p->output - input), 0.1);
+}
+
+
+/**
+ * @brief test function int_rand in class Optimizer
+ */
 TEST(optimizerTest, int_rand) {
   auto p = std::make_unique<Optimizer>();
   int rand_var = p->int_rand(1, 8, 1);
@@ -17,6 +36,9 @@ TEST(optimizerTest, int_rand) {
   ASSERT_LE(rand_var, 8);
 }
 
+/**
+ * @brief test function decimal_rand in class Optimizer
+ */
 TEST(optimizerTest, decimal_rand) {
   auto p = std::make_unique<Optimizer>();
   double rand_deci = p ->decimal_rand(1);
@@ -24,6 +46,9 @@ TEST(optimizerTest, decimal_rand) {
   ASSERT_LE(rand_deci, 1);
 }
 
+/**
+ * @brief test function get_state in class Optimizer
+ */
 TEST(optimizerTest, get_state) {
   auto p = std::make_unique<Optimizer>();
   auto v = p ->get_state();
@@ -32,6 +57,9 @@ TEST(optimizerTest, get_state) {
   EXPECT_EQ(v[2], 0);
 }
 
+/**
+ * @brief test function initial_state in class Optimizer
+ */
 TEST(optimizerTest, initial_state) {
   auto p = std::make_unique<Optimizer>();
   p ->set_state(1, 2, 3);
@@ -41,6 +69,9 @@ TEST(optimizerTest, initial_state) {
   EXPECT_EQ(v[2], 3);
 }
 
+/**
+ * @brief test function get_amplifier and set_amplifer in class Optimizer
+ */
 TEST(optimizerTEST, get_set_amplifier) {
   auto p = std::make_unique<Optimizer>();
   int expect = 1;
@@ -49,6 +80,9 @@ TEST(optimizerTEST, get_set_amplifier) {
   EXPECT_EQ(a, expect);
 }
 
+/**
+ * @brief test function move_state in class Optimizer
+ */
 TEST(optimizerTest, move_state) {
   auto p = std::make_unique<Optimizer>();
   auto step = 0.01;

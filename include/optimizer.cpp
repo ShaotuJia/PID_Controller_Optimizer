@@ -1,7 +1,7 @@
 /**
+ * @file optimizer.cpp
  * @brief: This is the source file for optimizer class which
  * applies Simuluated Annealing
- * @file PID.hpp
  * @author: Shaotu Jia
  * @copyright: Copyright [2017] <SHAOTU JIA>, All right reserved.
  */
@@ -38,7 +38,7 @@ double Optimizer::decimal_rand(int seed) {
   return (std::rand()/RAND_MAX);
 }
 /**
- * @brief: This function is to change the gain kp, ki, kd during optimization
+ * @brief: This function is to change the gain kp, ki, kd and state during optimization
  * @param number This is an integer (1, 8)
  */
 void Optimizer::move_state(const int& number) {
@@ -72,6 +72,7 @@ void Optimizer::move_state(const int& number) {
   } else {
     std::cout << "number for move_state must be >=1 && <=8 \n";
   }
+  // gain must be postive
   if (kp < 0) kp = 0;
   if (ki < 0) ki = 0;
   if (kd < 0) kd = 0;
@@ -79,10 +80,19 @@ void Optimizer::move_state(const int& number) {
   state = {kp, ki, kd};       // Assign kp, ki, kd to state
 }
 
+/**
+ * @brief This function is the interface to access private member state
+ */
 std::vector<double> Optimizer::get_state() {
   return (state);
 }
 
+/**
+ * @brief This function is to set up private member kp, ki, kd, and state vector
+ * @param Kp the gain in proportional part
+ * @param ki the gain in integral part
+ * @param kd the gain in differential part
+ */
 void Optimizer::set_state(const double Kp, \
                               const double Ki, const double Kd) {
   kp = Kp;
@@ -92,24 +102,43 @@ void Optimizer::set_state(const double Kp, \
   state = {kp, ki, kd};
 }
 
+/**
+ * @brief Set up private member step
+ * @param length the step in every time change
+ */
 void Optimizer::set_step(const double length) {
   step = length;
 }
 
+/**
+ * @brief Set up private member Tmax and Tmin
+ * @param max the maximum temperature
+ * @param min the minimum temperature
+ */
 void Optimizer::set_T(const int& max, const int& min) {
   Tmax = max;
   Tmin = min;
 }
 
+/**
+ * @brief Set up private member amplifier
+ * @param a the amplifier's value
+ */
 void Optimizer::set_amplifier(const int& a) {
   amplifier = a;
 }
 
+/**
+ * @brief Access the private member amplifier
+ * @return amplifier
+ */
 int Optimizer::get_amplifier() {
   return amplifier;
 }
 
-
+/**
+ * @brief Optimize kp, ki, kd using simulated annealing algorithm
+ */
 void Optimizer::anneal() {
   int setpoint = 6;
   auto p = std::make_unique<PID>(setpoint);
@@ -128,19 +157,19 @@ void Optimizer::anneal() {
     p ->compute();
     En = fabs(p ->final_error);      // get error of next energy
 
-    deltaE = Ec - En; // difference between current energy to next energy
+    // difference between current energy to next energy
+    deltaE = Ec - En;
     auto rand_deci = decimal_rand(i);
 
     if (deltaE > 0) {
       data.push_back(En);
 
-    } else if (exp(deltaE*2000) < rand_deci) {
+    } else if (exp(deltaE*amplifier) < rand_deci) {
       // Once next energy is not applicable;
       // We set back the state to current state,
       // and regenerate random move_state
       set_state(current_state[0], current_state[1], current_state[2]);
     }
     final_state = get_state();
-
   }
 }
