@@ -6,16 +6,18 @@
  * @copyright: Copyright [2017] <SHAOTU JIA>, All right reserved.
  */
 
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
 #include <vector>
+#include <memory>
 #include "optimizer.hpp"
 
 
 /**
  * @brief: this function is to generate integer number in range(low_bound, up_bound)
- * for example, int_rand(1,6) is to generate integer 1 ~ 6
+ * for example, int_rand(1,8) is to generate integer 1 ~ 8
  * @param low This is the lower bound of random number
  * @param up This is the upper bound of random number
  * @return A random integer within the range
@@ -25,24 +27,56 @@ int Optimizer::int_rand(int low, int up) {
   int d = std::abs(up - low) + 1;   // the difference to % in next step
   return (std::rand() % d + 1);
 }
-
-void Optimizer::move_state() {
-  int number = int_rand(1, 6);
+/**
+ * @brief: This function is to change the gain kp, ki, kd during optimization
+ * @param number This is an integer (1, 8)
+ */
+void Optimizer::move_state(const int& number) {
+  if (number >=1 && number <=8) {
+    switch (number) {
+      case 1: kp -= step, ki -= step, kd -= step;
+      case 2: kp += step, ki -= step, kd -= step;
+      case 3: kp -= step, ki += step, kd -= step;
+      case 4: kp -= step, ki -= step, kd += step;
+      case 5: kp += step, ki += step, kd -= step;
+      case 6: kp -= step, ki += step, kd += step;
+      case 7: kp += step, ki -= step, kd += step;
+      case 8: kp += step, ki += step, kd += step;
+    }
+  } else {
+    std::cout << "number for move_state must be >=1 && <=8 \n";
+  }
+  state.clear();
+  state = {kp, ki, kd};       // Assign kp, ki, kd to state
 }
 
-void initial_state(const double& kp, const double& ki, const double& kd) {
-
+std::vector<double> Optimizer::get_state() {
+  return (state);
 }
 
-void set_step(const double& length) {
-
+void Optimizer::initial_state(const double Kp, \
+                              const double Ki, const double Kd) {
+  kp = Kp;
+  ki = Ki;
+  kd = Kd;
+  state.clear();
+  state = {kp, ki, kd};
 }
 
-void set_T(const double& max, const double& min) {
+void Optimizer::set_step(const double length) {
+  step = length;
+}
 
+void Optimizer::set_T(const int& max, const int& min) {
+  Tmax = max;
+  Tmin = min;
 }
 
 
-std::vector<double> anneal() {
-
+void Optimizer::anneal() {
+  int setpoint = 6;
+  auto p = std::make_unique<PID>(setpoint);
+  p ->tuning(0.1, 0.1, 0);
+  p ->compute();
+  Ec = p ->output;
 }

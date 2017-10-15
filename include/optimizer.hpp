@@ -26,15 +26,17 @@ class Optimizer {
      double deltaE = Ec - En; // The energy difference between current state and next state
      std::vector<double> state{kp, ki, kd};
 
-     void move_state();
-     std::vector<double> anneal();
+
  public:
-     // initialize the std::vector<double> state
-     //Optimizer(){};
-     void initial_state(const double& kp, const double& ki, const double& kd);
-     void set_step(const double& length);
-     void set_T(const double& max, const double& min);
+
+     void move_state(const int& number);
+     std::vector<double> get_state();
+     void initial_state(const double, const double, const double);
+     void set_step(const double length);
+     void set_T(const int& max, const int& min);
      int int_rand(int low, int up);
+     //std::vector<double> anneal();
+     void anneal();
 
      //auto controller = std::make_unique<PID>(6);        // Create object for PID class
 

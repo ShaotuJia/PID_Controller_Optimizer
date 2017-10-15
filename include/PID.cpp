@@ -67,6 +67,8 @@ void PID::compute() {
             time_to_stable = t * time_interval;
             output = setpoint - e_c;
             break;
+        } else {
+          output = setpoint - e_c;
         }
     }
 }

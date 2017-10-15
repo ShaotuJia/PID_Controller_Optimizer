@@ -4,7 +4,12 @@
 
 
 #include <iostream>
+#include <memory>
+#include "PID.hpp"
+#include "optimizer.hpp"
 
 int main() {
-    return 0;
+    auto op = std::make_unique<Optimizer>();
+    op ->anneal();
+
 }
