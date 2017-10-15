@@ -19,7 +19,7 @@ class Optimizer {
      double ki = 0;
      double kd = 0;
      double step = 0.01;
-     double Tmax = 1000;
+     double Tmax = 100;
      double Tmin = 20;
      double Ec = 0;       // The energy in current point
      double En = 0;       // The energy in next point
@@ -28,20 +28,16 @@ class Optimizer {
 
 
  public:
-
+     std::vector<double> data;
+     std::vector<double> final_state;
      void move_state(const int& number);
      std::vector<double> get_state();
-     void initial_state(const double, const double, const double);
+     void set_state(const double, const double, const double);
      void set_step(const double length);
      void set_T(const int& max, const int& min);
      int int_rand(int low, int up);
-     //std::vector<double> anneal();
+     double decimal_rand();
      void anneal();
-
-     //auto controller = std::make_unique<PID>(6);        // Create object for PID class
-
-     //~Optimizer();
-
 };
 
 

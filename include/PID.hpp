@@ -38,6 +38,7 @@ class PID {
 
  public:
     double time_to_stable = 0;    ///< time to stabilized
+    double final_error = 0;       ///< error at the final
     double output = 0;                ///< final output after computation
     PID(double input):setpoint(input){};
     void tuning(double Kp_input, double Ki_input, double Kd_input);
@@ -46,7 +47,7 @@ class PID {
     double integrate(const double&);
     double differentiate(const double&, const double&);
     void compute();
-    ~PID();
+    //~PID();
 };
 
 

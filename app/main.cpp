@@ -10,6 +10,9 @@
 
 int main() {
     auto op = std::make_unique<Optimizer>();
+    op ->set_state(0.5, 0.5, 0);
     op ->anneal();
-
+    for (auto& x : op ->data) {
+      std::cout << x <<"\n";
+    }
 }

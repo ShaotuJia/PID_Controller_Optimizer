@@ -17,6 +17,13 @@ TEST(optimizerTest, int_rand) {
   ASSERT_LE(rand_var, 8);
 }
 
+TEST(optimizerTest, decimal_rand) {
+  auto p = std::make_unique<Optimizer>();
+  double rand_deci = p ->decimal_rand();
+  ASSERT_GE(rand_deci, 0);
+  ASSERT_LE(rand_deci, 1);
+}
+
 TEST(optimizerTest, get_state) {
   auto p = std::make_unique<Optimizer>();
   auto v = p ->get_state();
@@ -27,7 +34,7 @@ TEST(optimizerTest, get_state) {
 
 TEST(optimizerTest, initial_state) {
   auto p = std::make_unique<Optimizer>();
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   auto v = p ->get_state();
   EXPECT_EQ(v[0], 1);
   EXPECT_EQ(v[1], 2);
@@ -39,7 +46,7 @@ TEST(optimizerTest, move_state) {
   auto step = 0.01;
 
   // test for case 1
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(1);
   auto a = p ->get_state();
   EXPECT_EQ(a[0], 1 - step);
@@ -47,7 +54,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(a[2], 3 - step);
 
   // test for case 2
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(2);
   auto b = p ->get_state();
   EXPECT_EQ(b[0], 1 + step);
@@ -55,7 +62,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(b[2], 3 - step);
 
   // test for case 3
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(3);
   auto c = p ->get_state();
   EXPECT_EQ(c[0], 1 - step);
@@ -63,7 +70,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(c[2], 3 - step);
 
   // test for case 4
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(4);
   auto d = p ->get_state();
   EXPECT_EQ(d[0], 1 - step);
@@ -71,7 +78,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(d[2], 3 + step);
 
   // test for case 5
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(5);
   auto e = p ->get_state();
   EXPECT_EQ(e[0], 1 + step);
@@ -79,7 +86,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(e[2], 3 - step);
 
   // test for case 6
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(6);
   auto f = p ->get_state();
   EXPECT_EQ(f[0], 1 - step);
@@ -87,7 +94,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(f[2], 3 + step);
 
   // test for case 7
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(7);
   auto g = p ->get_state();
   EXPECT_EQ(g[0], 1 + step);
@@ -95,7 +102,7 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(g[2], 3 + step);
 
   // test for case 8
-  p ->initial_state(1, 2, 3);
+  p ->set_state(1, 2, 3);
   p ->move_state(8);
   auto h = p ->get_state();
   EXPECT_EQ(h[0], 1 + step);

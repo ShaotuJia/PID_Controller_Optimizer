@@ -71,8 +71,10 @@ void PID::compute() {
           output = setpoint - e_c;
         }
     }
+    final_error = e_c;
 }
 
+#if 0
 /*
  * @brief This destructor is to output all necessary information
  */
@@ -87,3 +89,5 @@ PID::~PID() {
         std::cout << "The current error: " << e_c <<"\n";
     }
 }
+
+#endif
