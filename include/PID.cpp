@@ -74,20 +74,3 @@ void PID::compute() {
     final_error = e_c;
 }
 
-#if 0
-/*
- * @brief This destructor is to output all necessary information
- */
-PID::~PID() {
-    if (e_c < tolerance) {
-        std::cout << "Successful tuning !!\n";
-        std::cout << "The current error: " << e_c << "\n";
-        std::cout << "The time to stable: " << time_to_stable << "\n";
-        std::cout << "Final output: " << output << "\n";
-    } else {
-        std::cout << "Unacceptable tuning !! Please try again !!\n";
-        std::cout << "The current error: " << e_c <<"\n";
-    }
-}
-
-#endif

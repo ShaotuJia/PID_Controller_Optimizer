@@ -12,14 +12,14 @@
 
 TEST(optimizerTest, int_rand) {
   auto p = std::make_unique<Optimizer>();
-  int rand_var = p->int_rand(1, 8);
+  int rand_var = p->int_rand(1, 8, 1);
   ASSERT_GE(rand_var, 1);
   ASSERT_LE(rand_var, 8);
 }
 
 TEST(optimizerTest, decimal_rand) {
   auto p = std::make_unique<Optimizer>();
-  double rand_deci = p ->decimal_rand();
+  double rand_deci = p ->decimal_rand(1);
   ASSERT_GE(rand_deci, 0);
   ASSERT_LE(rand_deci, 1);
 }
@@ -39,6 +39,14 @@ TEST(optimizerTest, initial_state) {
   EXPECT_EQ(v[0], 1);
   EXPECT_EQ(v[1], 2);
   EXPECT_EQ(v[2], 3);
+}
+
+TEST(optimizerTEST, get_set_amplifier) {
+  auto p = std::make_unique<Optimizer>();
+  int expect = 1;
+  p ->set_amplifier(expect);
+  auto a = p ->get_amplifier();
+  EXPECT_EQ(a, expect);
 }
 
 TEST(optimizerTest, move_state) {

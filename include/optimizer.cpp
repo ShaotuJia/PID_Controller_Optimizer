@@ -23,8 +23,8 @@
  * @param up This is the upper bound of random number
  * @return A random integer within the range
  */
-int Optimizer::int_rand(int low, int up) {
-  std::srand(time(NULL));         // set the random seed as current time
+int Optimizer::int_rand(int low, int up, int seed) {
+  std::srand(time(NULL) + seed);         // set the random seed as current time
   int d = std::abs(up - low) + 1;   // the difference to % in next step
   return (std::rand() % d + 1);
 }
@@ -33,8 +33,8 @@ int Optimizer::int_rand(int low, int up) {
  * @brief: This function is to generate decimal number from 0 to 1
  * return decimal number
  */
-double Optimizer::decimal_rand() {
-  std::srand(time(NULL));
+double Optimizer::decimal_rand(int seed) {
+  std::srand(time(NULL) + seed);
   return (std::rand()/RAND_MAX);
 }
 /**
@@ -101,11 +101,18 @@ void Optimizer::set_T(const int& max, const int& min) {
   Tmin = min;
 }
 
+void Optimizer::set_amplifier(const int& a) {
+  amplifier = a;
+}
+
+int Optimizer::get_amplifier() {
+  return amplifier;
+}
+
 
 void Optimizer::anneal() {
   int setpoint = 6;
   auto p = std::make_unique<PID>(setpoint);
-  auto deltaT = std::abs(Tmax - Tmin);
 
   for (int i = Tmax; i >= Tmin; i--) {
     // get current energy
@@ -115,22 +122,19 @@ void Optimizer::anneal() {
     Ec = fabs(p ->final_error);      // get error for current energy
 
     // get next energy
-    int rand_var = int_rand(1, 8);
+    int rand_var = int_rand(1, 8, i);
     move_state(rand_var);
     p ->tuning(state[0], state[1], state[2]);
     p ->compute();
     En = fabs(p ->final_error);      // get error of next energy
 
     deltaE = Ec - En; // difference between current energy to next energy
-    auto rand_deci = decimal_rand();
+    auto rand_deci = decimal_rand(i);
 
     if (deltaE > 0) {
       data.push_back(En);
 
-    } else if (exp(deltaE/(deltaT)) > rand_deci) {
-      data.push_back(En);
-    } else {
-
+    } else if (exp(deltaE*2000) < rand_deci) {
       // Once next energy is not applicable;
       // We set back the state to current state,
       // and regenerate random move_state

@@ -47,7 +47,6 @@ class PID {
     double integrate(const double&);
     double differentiate(const double&, const double&);
     void compute();
-    //~PID();
 };
 
 

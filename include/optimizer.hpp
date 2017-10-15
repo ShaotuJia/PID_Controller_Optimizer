@@ -19,11 +19,12 @@ class Optimizer {
      double ki = 0;
      double kd = 0;
      double step = 0.01;
-     double Tmax = 100;
+     double Tmax = 10000;
      double Tmin = 20;
      double Ec = 0;       // The energy in current point
      double En = 0;       // The energy in next point
      double deltaE = Ec - En; // The energy difference between current state and next state
+     int amplifier = 2000;    ///> Amplifier for probability comparison
      std::vector<double> state{kp, ki, kd};
 
 
@@ -35,8 +36,10 @@ class Optimizer {
      void set_state(const double, const double, const double);
      void set_step(const double length);
      void set_T(const int& max, const int& min);
-     int int_rand(int low, int up);
-     double decimal_rand();
+     void set_amplifier(const int&);
+     int get_amplifier();
+     int int_rand(int low, int up, int seed);
+     double decimal_rand(int seed);
      void anneal();
 };
 
