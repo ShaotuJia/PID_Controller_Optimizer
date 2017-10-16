@@ -48,6 +48,7 @@ PID controller is a kind of feedback control system widely used in industry. The
    if ΔE > 0 then current ← next
    else current ← next only with probability exp(ΔE)/T
 ```
+- ### Simulated Annealing Animation(from Wikipedia)
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Hill_Climbing_with_Simulated_Annealing.gif" width=800 height=400>
 
 - ### Reason to Choose Simulated Annealing
