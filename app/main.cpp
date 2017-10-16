@@ -2,6 +2,9 @@
  * @file main.cpp
  * @author: Shaotu Jia
  * @copyright: Copyright [2017] <SHAOTU JIA> All Right Reserved.
+ * @brief This main function is an example
+ * @description The example shows how to use Optimizer to get optimal solution
+ * and plot the iteration result using external library matplotlib.h
  */
 
 #include <matplotlibcpp.h>

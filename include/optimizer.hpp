@@ -22,13 +22,13 @@ class Optimizer {
      double ki = 0;       ///> The gain for integral part
      double kd = 0;       ///> The gain for differential part
      double step = 0.01;  ///> The step length in every time change
-     double Tmax = 10000; ///> The maximum temperature
-     double Tmin = 20;    ///> The minimum temperature
+     int Tmax = 10000;    ///> The maximum temperature
+     int Tmin = 20;       ///> The minimum temperature
      double Ec = 0;       ///> The energy in current point
      double En = 0;       ///> The energy in next point
      double deltaE = Ec - En; // The energy difference between current state and next state
      int amplifier = 2000;    ///> Amplifier for probability comparison
-     std::vector<double> state{kp, ki, kd};
+     std::vector<double> state{kp, ki, kd};   ///> The state of all gains in PID
 
 
  public:
