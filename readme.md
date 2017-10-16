@@ -9,6 +9,7 @@ The product log, time log, and defect log are written in google sheet. [click_he
 
 ## Third-party package
 This project uses external library 'matplotlib-cpp' to plot figure. [matplotlib-cpp](https://github.com/lava/matplotlib-cpp)
+
 'matplotlib-cpp' requires python and its packages matplotlib, numpy, python-dev. On ubunut:
 ```
 sudo apt-get install python-matplotlib python-numpy python2.7-dev
