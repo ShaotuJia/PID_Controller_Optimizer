@@ -81,6 +81,29 @@ TEST(optimizerTEST, get_set_amplifier) {
 }
 
 /**
+ * @brief test function set_T and get_intervalT
+ */
+TEST(optimizerTEST, get_set_T) {
+  auto p = std::make_unique<Optimizer>();
+  int expect_Tmax = 1000;
+  int expect_Tmin = 0;
+  p ->set_T(expect_Tmax, expect_Tmin);
+  auto intervalT = p ->get_intervalT();
+  EXPECT_EQ(intervalT, expect_Tmax - expect_Tmin);
+}
+
+
+/**
+ * @brief test function set_step and get_step in class Optimizer
+ */
+TEST(optimizerTEST, get_set_step) {
+  auto p = std::make_unique<Optimizer>();
+  int expect = 1;
+  p ->set_step(expect);
+  auto s = p ->get_step();
+  EXPECT_EQ(s, expect);
+}
+/**
  * @brief test function move_state in class Optimizer
  */
 TEST(optimizerTest, move_state) {
@@ -150,5 +173,19 @@ TEST(optimizerTest, move_state) {
   EXPECT_EQ(h[0], 1 + step);
   EXPECT_EQ(h[1], 2 + step);
   EXPECT_EQ(h[2], 3 + step);
+}
+
+/**
+ * @brief This is test whether the optimal solution using function
+ * anneal() is acceptable
+ */
+TEST(optimizerTEST, anneal) {
+  auto p = std::make_unique<Optimizer>();
+  int max_error = 1;
+  p ->set_T(10000, 20);
+  p ->set_state(0.5, 0.5, 0);
+  p ->anneal();
+  auto v = p ->data;
+  ASSERT_LE(v.back(), max_error);
 }
 
