@@ -6,6 +6,7 @@
  * @copyright: Copyright [2017] <SHAOTU JIA>, All right reserved.
  */
 #include <math.h>
+#include <optimizer.h>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -13,7 +14,6 @@
 #include <vector>
 #include <memory>
 
-#include "optimizer.hpp"
 
 
 /**

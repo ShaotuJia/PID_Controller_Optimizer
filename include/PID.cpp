@@ -4,7 +4,7 @@
  * @copyright, Shaotu Jia, All rights reserved
  */
 
-#include "PID.hpp"
+#include <PID.h>
 
 /**
  * @brief The constructor set up the setpoint

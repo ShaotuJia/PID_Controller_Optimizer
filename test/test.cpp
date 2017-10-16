@@ -6,9 +6,9 @@
 
 
 #include <gtest/gtest.h>
+#include <optimizer.h>
+#include <PID.h>
 #include <memory>
-#include "optimizer.hpp"
-#include "PID.hpp"
 
 
 /**

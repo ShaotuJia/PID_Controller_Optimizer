@@ -4,8 +4,8 @@
  * @copyright, Shaotu Jia, All rights reserved
  */
 
- #ifndef PID_HPP_
- #define PID_HPP_
+#ifndef INCLUDE_PID_H_
+#define INCLUDE_PID_H_
 
 #include <iostream>
 #include <cmath>
@@ -18,7 +18,7 @@ class PID {
  private:
      double setpoint = 0;    ///< The setpoint in controller
      double run_time = 10;   ///< The total run time of PID controller
-     double time_interval = 0.001; ///< The time interval for computation 1ms
+     double time_interval = 0.001;  ///< The time interval for computation 1ms
      double Kp = 0;     ///< The proportional gain, a tuning paremeter
      double Ki = 0;     ///< The integral gain, a tuning paremeter
      double Kd = 0;     ///< The derivative gain, a tuning paremeter
@@ -32,7 +32,7 @@ class PID {
     double time_to_stable = 0;    ///< time to stabilized
     double final_error = 0;       ///< error at the final
     double output = 0;                ///< final output after computation
-    PID(double);
+    explicit PID(double);
     void tuning(double Kp_input, double Ki_input, double Kd_input);
     void get_error(const double& process_variable);
     double proportion(const double&);
@@ -41,6 +41,5 @@ class PID {
     void compute();
 };
 
+#endif  // INCLUDE_PID_H_
 
-
- #endif /*PID_HPP_ */

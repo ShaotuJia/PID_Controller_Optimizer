@@ -1,3 +1,9 @@
+/**
+ * @file main.cpp
+ * @brief: This is the main function of unit testing
+ * @copyright, Shaotu Jia, All rights reserved
+ */
+
 #include <gtest/gtest.h>
 
 int main(int argc, char** argv) {

@@ -6,12 +6,12 @@
  * @copyright: Copyright [2017] <SHAOTU JIA> All right reserved.
  */
 
- #ifndef _OPTIMIZER_HPP
- #define _OPTIMIZER_HPP
+#ifndef INCLUDE_OPTIMIZER_H_
+#define INCLUDE_OPTIMIZER_H_
 
+#include <PID.h>
 #include <vector>
 #include <memory>
-#include "PID.hpp"
 
 /**
  * @brief: This class is the PID Optimizer using Simulated Annealing Algorithm
@@ -26,7 +26,7 @@ class Optimizer {
      int Tmin = 20;       ///> The minimum temperature
      double Ec = 0;       ///> The energy in current point
      double En = 0;       ///> The energy in next point
-     double deltaE = Ec - En; // The energy difference between current state and next state
+     double deltaE = Ec - En;  ///> The energy difference between current state and next state
      int amplifier = 2000;    ///> Amplifier for probability comparison
      std::vector<double> state{kp, ki, kd};   ///> The state of all gains in PID
 
@@ -51,4 +51,4 @@ class Optimizer {
 
 
 
- #endif
+#endif  // INCLUDE_OPTIMIZER_H_
