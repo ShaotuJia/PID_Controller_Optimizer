@@ -7,6 +7,14 @@
 The product log, time log, and defect log are written in google sheet. [click_here](https://docs.google.com/spreadsheets/d/1u9WEmkIhlhbIRRlmwj4HqYvlbm0llhUNIEqe1h8LvHQ/edit?usp=sharing)
 
 
+## Third-party package
+This project uses external library 'matplotlib-cpp' to plot figure. [matplotlib-cpp](https://github.com/lava/matplotlib-cpp)
+
+'matplotlib-cpp' requires python and its packages matplotlib, numpy, python-dev. On ubunut:
+```
+sudo apt-get install python-matplotlib python-numpy python2.7-dev
+```
+
 ## Standard install via command-line
 ```
 git clone --recursive https://github.com/ShaotuJia/PID_Controller_Optimizer.git
@@ -25,11 +33,29 @@ PID controller is a kind of feedback control system widely used in industry. The
 
 ## Algorithm Description
 
-Gradient descent is a machine learning algorithm using first-order iterative optimization. This algorithm has been proved to be a practical way to find the minima of a function or its maxima (usually called gradient ascent when finding maxima).
+ Simulated annealing is a local search algorithm inspired by statistical physics to appoximate the global optimum of a function. 
+ - ### Pseudocode(from 'Artificial Intelligence: A Modern Approach', Third Edition, page 126)
+ ```
+ function SIMULATED-ANNEALING(problem, schedule) returns a solution state
+  inputs: problem, a problem
+  schedule, a mapping from time to “temperature”
+  current ← MAKE-NODE(problem.INITIAL-STATE)
+  for t = 1 to ∞ do
+   T ← schedule(t)
+   if T = 0 then return current
+   next ← a randomly selected successor of current
+   ΔE ← next.VALUE – current.VALUE
+   if ΔE > 0 then current ← next
+   else current ← next only with probability exp(ΔE)/T
+```
+- ### Simulated Annealing Animation(from Wikipedia)
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Hill_Climbing_with_Simulated_Annealing.gif" width=800 height=400>
 
-To explain the algorithm, here we use the Figure 1 to illustrate the process of gradient descent. The blue circle is the value of function F(x) represented by level set; its value gradually decreases from out layer to the center. The red arrow shows the optimization process. The variable x starts from x0. In this case, the variable x goes to the steepest direction and reach the next position x1. The program will iterate this step until finding the local minima or reach the boundary value of x.  
+- ### Reason to Choose Simulated Annealing
+PID equation is not a linear equation and it always fluctuate during tunning process. Thus, gradient descent method always stop at the local optimum and cannto find the global optimum. Thus, simulated annealing is a better choice to find global optimum.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg" width=400 height=400>
+- ### Reminder
+Simuated Annealing is a probablistic technique. Thus, it usually requires more computing resource. Also, since it is probablistic the results will be different in everytime running. 
 
 ## Design Outline
 This project can be separated into two parts, optimization, and visualization. The optimization is the core part that computes the function minima. The visualization will draw a 2D graph to check whether the function value trends to smaller.
@@ -42,16 +68,16 @@ This project can be separated into two parts, optimization, and visualization. T
   * External Library: matplotlib-cpp 
 
 ## Development Process
-- [ ] Implement the core optimizer using Gradient Descent. 
-- [ ] Apply google test to verify the implementation.
-- [ ] Apply this optimizer to polynomials (from first order to higher order)
-- [ ] Visualize output data using python 3 and Matplotlib library. 
-- [ ] Apply the optimizer to PID controller implemented in Week 4 assignment. 
-- [ ] Use matplotlib-cpp library to visualize the iteration process
+- [x] Implement the core optimizer using Gradient Descent. 
+- [x] Apply google test to verify the implementation.
+- [x] Apply this optimizer to polynomials (from first order to higher order)
+- [x] Visualize output data using python 3 and Matplotlib library. 
+- [x] Apply the optimizer to PID controller implemented in Week 4 assignment. 
+- [x] Use matplotlib-cpp library to visualize the iteration process
 
 ## Final Deliverables:
-- [ ] Implementation of Optimization class
-- [ ] Sample polynomial functions and Sample PID controller for Unit Testing
-- [ ] The Unit Testing using google test
-- [ ] Github README with TravisCI and Coverage of Coveralls
+- [x] Implementation of Optimization class
+- [x] Sample PID controller gains optimization and iteration error figure
+- [x] The Unit Testing using google test
+- [x] Github README with TravisCI and Coverage of Coveralls
 - [ ] Doxygen Documentation
