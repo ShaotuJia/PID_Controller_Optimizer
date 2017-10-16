@@ -41,6 +41,8 @@ class Optimizer {
      void set_T(const int& max, const int& min);
      void set_amplifier(const int&);
      int get_amplifier();
+     double get_step();
+     int get_intervalT();
      int int_rand(int low, int up, int seed);
      double decimal_rand(int seed);
      void anneal();

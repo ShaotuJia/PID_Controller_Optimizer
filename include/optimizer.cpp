@@ -111,6 +111,14 @@ void Optimizer::set_step(const double length) {
 }
 
 /**
+ * @brief An interface to access private member step
+ * @return step
+ */
+double Optimizer::get_step() {
+  return (step);
+}
+
+/**
  * @brief Set up private member Tmax and Tmin
  * @param max the maximum temperature
  * @param min the minimum temperature
@@ -118,6 +126,14 @@ void Optimizer::set_step(const double length) {
 void Optimizer::set_T(const int& max, const int& min) {
   Tmax = max;
   Tmin = min;
+}
+
+/**
+ * @brief function to get difference between Tmax and Tmin
+ * @return intervalT = Tmax - Tmin
+ */
+int Optimizer::get_intervalT() {
+  return (Tmax - Tmin);
 }
 
 /**
@@ -133,8 +149,10 @@ void Optimizer::set_amplifier(const int& a) {
  * @return amplifier
  */
 int Optimizer::get_amplifier() {
-  return amplifier;
+  return (amplifier);
 }
+
+
 
 /**
  * @brief Optimize kp, ki, kd using simulated annealing algorithm
