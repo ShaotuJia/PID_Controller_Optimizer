@@ -1,5 +1,5 @@
 # PID_Controller_Optimizer
-[![Build Status](https://travis-ci.org/ShaotuJia/PID_Controller_Optimizer.svg?branch=master)](https://travis-ci.org/ShaotuJia/PID_Controller_Optimizer.svg?branch=master)
+[![Build Status](https://travis-ci.org/ShaotuJia/PID_Controller_Optimizer.svg?branch=master)](https://travis-ci.org/ShaotuJia/PID_Controller_Optimizer)
 [![Coverage Status](https://coveralls.io/repos/github/ShaotuJia/PID_Controller_Optimizer/badge.svg?branch=master)](https://coveralls.io/github/ShaotuJia/PID_Controller_Optimizer?branch=master)
 ---
 
