@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ShaotuJia/PID_Controller_Optimizer/badge.svg?branch=master)](https://coveralls.io/github/ShaotuJia/PID_Controller_Optimizer?branch=master)
 ---
 
-# Enacting and Measuring SIP
+## Enacting and Measuring SIP
 The product log, time log, and defect log are written in google sheet. [click_here](https://docs.google.com/spreadsheets/d/1u9WEmkIhlhbIRRlmwj4HqYvlbm0llhUNIEqe1h8LvHQ/edit?usp=sharing)
 
 
@@ -25,6 +25,23 @@ cmake ..
 make
 Run tests: ./test/optimizer-test
 Run program: ./app/pid_optimizer
+```
+## Doxygen Documentation
+Install Doxygen on Ubunut:
+```
+sudo apt-get install doxygen
+```
+Re-generate documentation:
+```
+cd <path to repository.
+cd doc/
+doxygen
+```
+Open Documentation:
+```
+cd <path to repository>
+cd doc/
+firefox html/index.html
 ```
 
 ## Motivation
@@ -80,4 +97,4 @@ This project can be separated into two parts, optimization, and visualization. T
 - [x] Sample PID controller gains optimization and iteration error figure
 - [x] The Unit Testing using google test
 - [x] Github README with TravisCI and Coverage of Coveralls
-- [ ] Doxygen Documentation
+- [x] Doxygen Documentation
