@@ -5,6 +5,14 @@
  */
 
 #include "PID.hpp"
+
+/**
+ * @brief The constructor set up the setpoint
+ * @param input Set up the setpoint
+ */
+PID::PID(double input):setpoint(input) {}
+
+
 /**
  * @brief This function is to configure the parameters in PID equation
  * @param Kp_input A double as the parameter of proportional term
