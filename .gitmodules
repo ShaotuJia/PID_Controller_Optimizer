@@ -4,3 +4,6 @@
 [submodule "vendor/boost"]
 	path = vendor/boost
 	url = git@github.com:boostorg/boost.git
+[submodule "matplotlib-cpp"]
+	path = matplotlib-cpp
+	url = https://github.com/lava/matplotlib-cpp.git
