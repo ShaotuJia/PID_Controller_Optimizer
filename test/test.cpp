@@ -47,12 +47,13 @@ TEST(optimizerTest, decimal_rand) {
 /**
  * @brief test function get_state in class Optimizer
  */
-TEST(optimizerTest, get_state) {
+TEST(optimizerTest, set_get_state) {
   auto p = std::make_unique<Optimizer>();
+  p ->set_state(1, 2, 3);
   auto v = p ->get_state();
-  EXPECT_EQ(v[0], 0);
-  EXPECT_EQ(v[1], 0);
-  EXPECT_EQ(v[2], 0);
+  EXPECT_EQ(v[0], 1);
+  EXPECT_EQ(v[1], 2);
+  EXPECT_EQ(v[2], 3);
 }
 
 /**
