@@ -5,6 +5,7 @@
  */
 #include <gtest/gtest.h>
 #include <memory>
+#include <vector>
 #include "headers/optimizer.h"
 #include "headers/PID.h"
 
@@ -47,21 +48,21 @@ TEST(optimizerTest, decimal_rand) {
 /**
  * @brief test function get_state in class Optimizer
  */
-TEST(optimizerTest, set_get_state) {
+TEST(optimizerTest, get_initial_state) {
   auto p = std::make_unique<Optimizer>();
-  p ->set_state(1, 2, 3);
   auto v = p ->get_state();
-  EXPECT_EQ(v[0], 1);
-  EXPECT_EQ(v[1], 2);
-  EXPECT_EQ(v[2], 3);
+  EXPECT_EQ(v[0], 0);
+  EXPECT_EQ(v[1], 0);
+  EXPECT_EQ(v[2], 0);
 }
 
 /**
- * @brief test function initial_state in class Optimizer
+ * @brief test function set_state in class Optimizer
  */
-TEST(optimizerTest, initial_state) {
+TEST(optimizerTest, set_state) {
   auto p = std::make_unique<Optimizer>();
-  p ->set_state(1, 2, 3);
+  std::vector<int> e = {1, 2, 3};
+  p ->set_state(e[0], e[1], e[2]);
   auto v = p ->get_state();
   EXPECT_EQ(v[0], 1);
   EXPECT_EQ(v[1], 2);
