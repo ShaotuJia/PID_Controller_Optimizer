@@ -1,9 +1,8 @@
 /**
- * @file PID.hpp
- * @breif: This file is to implement the PID class
+ * @file PID.h
+ * @brief This is the header file for PID class
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
-
 #ifndef INCLUDE_HEADERS_PID_H_
 #define INCLUDE_HEADERS_PID_H_
 

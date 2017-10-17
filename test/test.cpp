@@ -16,9 +16,8 @@
 TEST(PIDTest, ComputationTest) {
   double input = 1;   ///< Input value for setpoint
   auto p = std::make_unique<PID>(input);
-  /**
-   * !!! change the tuning parameter to pass the last test !!
-   */
+
+  //!!! change the tuning parameter to pass the last test !!
   p->tuning(0.1, 0.1, 0.1);
   p->compute();
   EXPECT_LT(std::abs(p->output - input), 0.1);

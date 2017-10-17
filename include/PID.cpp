@@ -1,6 +1,6 @@
 /**
  * @file PID.cpp
- * @Brief This is the source file for class PID
+ * @brief This is the source file for PID class
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 #include "headers/PID.h"

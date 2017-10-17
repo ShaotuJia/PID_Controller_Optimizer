@@ -1,11 +1,9 @@
 /**
- * @file optimizer.hpp
- * @brief: This is the header file for optimizer class which
- * applies Simuluated Annealing
- * @author: Shaotu Jia
+ * @file optimizer.h
+ * @brief This is the header file for Optimizer class which applies Simulated Annealing
+ * @author Shaotu Jia
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
-
 #ifndef INCLUDE_HEADERS_OPTIMIZER_H_
 #define INCLUDE_HEADERS_OPTIMIZER_H_
 
@@ -14,7 +12,7 @@
 #include <memory>
 
 /**
- * @brief: This class is the PID Optimizer using Simulated Annealing Algorithm
+ * @brief This class is the PID Optimizer using Simulated Annealing Algorithm
  */
 class Optimizer {
  private:

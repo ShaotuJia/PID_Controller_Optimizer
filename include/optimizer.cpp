@@ -1,8 +1,8 @@
 /**
  * @file optimizer.cpp
- * @brief: This is the source file for optimizer class which
- * applies Simuluated Annealing
- * @author: Shaotu Jia
+ * @brief This is the source file for Optimizer class which
+ * applies Simulated Annealing
+ * @author Shaotu Jia
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 #include "headers/optimizer.h"
@@ -17,11 +17,11 @@
 
 
 /**
- * @brief: this function is to generate integer number in range(low_bound, up_bound)
+ * @brief This function is to generate integer number in range(low_bound, up_bound)
  * for example, int_rand(1,8) is to generate integer 1 ~ 8
  * @param low This is the lower bound of random number
  * @param up This is the upper bound of random number
- * @return A random integer within the range
+ * @return random integer within the range
  */
 int Optimizer::int_rand(int low, int up, int seed) {
   std::srand(time(NULL) + seed);         // set the random seed as current time
@@ -30,15 +30,15 @@ int Optimizer::int_rand(int low, int up, int seed) {
 }
 
 /**
- * @brief: This function is to generate decimal number from 0 to 1
- * return decimal number
+ * @brief This function is to generate decimal number from 0 to 1
+ * @return random decimal number(0~1)
  */
 double Optimizer::decimal_rand(int seed) {
   std::srand(time(NULL) + seed);
   return (std::rand()/RAND_MAX);
 }
 /**
- * @brief: This function is to change the gain kp, ki, kd and state during optimization
+ * @brief This function is to change the gain kp, ki, kd and state during optimization
  * @param number This is an integer (1, 8)
  */
 void Optimizer::move_state(const int& number) {
@@ -72,7 +72,7 @@ void Optimizer::move_state(const int& number) {
   } else {
     std::cout << "number for move_state must be >=1 && <=8 \n";
   }
-  // gain must be postive
+  // gain must be positive
   if (kp < 0) kp = 0;
   if (ki < 0) ki = 0;
   if (kd < 0) kd = 0;
