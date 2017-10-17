@@ -4,7 +4,12 @@
  * @copyright (C) 2007 Free Software Foundation, Inc.
  * @brief This main function is an example.
  * @description The example shows how to use Optimizer to get optimal solution
- * and plot the iteration result using external library matplotlib.h
+ * and plot the iteration result using external library matplotlib.h.
+ *
+ * @details GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007
+ * Everyone is permitted to copy and distribute verbatim copies
+ * of this license document, but changing it is not allowed.
+ *
  * @mainpage[Abstract]
  * PID controller is a kind of feedback control system
  * widely used in industry. The controller is usually operated by three gains

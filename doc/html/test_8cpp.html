@@ -73,6 +73,7 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;gtest/gtest.h&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="optimizer_8h_source.html">headers/optimizer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="PID_8h_source.html">headers/PID.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -87,12 +88,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a099b9cd2de8dce2dfc66c7a85afe4467"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a099b9cd2de8dce2dfc66c7a85afe4467">TEST</a> (optimizerTest, decimal_rand)</td></tr>
 <tr class="memdesc:a099b9cd2de8dce2dfc66c7a85afe4467"><td class="mdescLeft">&#160;</td><td class="mdescRight">test function decimal_rand in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a>  <a href="#a099b9cd2de8dce2dfc66c7a85afe4467">More...</a><br /></td></tr>
 <tr class="separator:a099b9cd2de8dce2dfc66c7a85afe4467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72770a2deeae18497e007e2645d6ddcf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a72770a2deeae18497e007e2645d6ddcf">TEST</a> (optimizerTest, get_state)</td></tr>
-<tr class="memdesc:a72770a2deeae18497e007e2645d6ddcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">test function get_state in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a>  <a href="#a72770a2deeae18497e007e2645d6ddcf">More...</a><br /></td></tr>
-<tr class="separator:a72770a2deeae18497e007e2645d6ddcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a833ee85cc83589df75fdfd0e28047a69"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a833ee85cc83589df75fdfd0e28047a69">TEST</a> (optimizerTest, initial_state)</td></tr>
-<tr class="memdesc:a833ee85cc83589df75fdfd0e28047a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">test function initial_state in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a>  <a href="#a833ee85cc83589df75fdfd0e28047a69">More...</a><br /></td></tr>
-<tr class="separator:a833ee85cc83589df75fdfd0e28047a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac463f3ad2003fde6b12e52c095371e83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ac463f3ad2003fde6b12e52c095371e83">TEST</a> (optimizerTest, get_initial_state)</td></tr>
+<tr class="memdesc:ac463f3ad2003fde6b12e52c095371e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">test function get_state in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a>  <a href="#ac463f3ad2003fde6b12e52c095371e83">More...</a><br /></td></tr>
+<tr class="separator:ac463f3ad2003fde6b12e52c095371e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8516866cd6089e7a3b54d36ae5636084"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a8516866cd6089e7a3b54d36ae5636084">TEST</a> (optimizerTest, set_state)</td></tr>
+<tr class="memdesc:a8516866cd6089e7a3b54d36ae5636084"><td class="mdescLeft">&#160;</td><td class="mdescRight">test function set_state in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a>  <a href="#a8516866cd6089e7a3b54d36ae5636084">More...</a><br /></td></tr>
+<tr class="separator:a8516866cd6089e7a3b54d36ae5636084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0ac553b91efe56d204ac2ebca18152f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ad0ac553b91efe56d204ac2ebca18152f">TEST</a> (optimizerTEST, get_set_amplifier)</td></tr>
 <tr class="memdesc:ad0ac553b91efe56d204ac2ebca18152f"><td class="mdescLeft">&#160;</td><td class="mdescRight">test function get_amplifier and set_amplifer in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a>  <a href="#ad0ac553b91efe56d204ac2ebca18152f">More...</a><br /></td></tr>
 <tr class="separator:ad0ac553b91efe56d204ac2ebca18152f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,7 +112,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unit Testing for every class. </p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2007 Free Software Foundation, Inc. </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(C) 2007 Free Software Foundation, Inc.</dd></dl>
+<p>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007 Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ac21416af37e08aec73ead44e16060f28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac21416af37e08aec73ead44e16060f28">&#9670;&nbsp;</a></span>TEST() <span class="overload">[1/10]</span></h2>
@@ -205,8 +207,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a72770a2deeae18497e007e2645d6ddcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72770a2deeae18497e007e2645d6ddcf">&#9670;&nbsp;</a></span>TEST() <span class="overload">[4/10]</span></h2>
+<a id="ac463f3ad2003fde6b12e52c095371e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac463f3ad2003fde6b12e52c095371e83">&#9670;&nbsp;</a></span>TEST() <span class="overload">[4/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,7 +222,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">get_state&#160;</td>
+          <td class="paramtype">get_initial_state&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -235,8 +237,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a833ee85cc83589df75fdfd0e28047a69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a833ee85cc83589df75fdfd0e28047a69">&#9670;&nbsp;</a></span>TEST() <span class="overload">[5/10]</span></h2>
+<a id="a8516866cd6089e7a3b54d36ae5636084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8516866cd6089e7a3b54d36ae5636084">&#9670;&nbsp;</a></span>TEST() <span class="overload">[5/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,7 +252,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">initial_state&#160;</td>
+          <td class="paramtype">set_state&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -261,7 +263,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>test function initial_state in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a> </p>
+<p>test function set_state in class <a class="el" href="classOptimizer.html" title="This class is the PID Optimizer using Simulated Annealing Algorithm. ">Optimizer</a> </p>
 
 </div>
 </div>
