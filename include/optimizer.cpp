@@ -3,7 +3,7 @@
  * @brief: This is the source file for optimizer class which
  * applies Simuluated Annealing
  * @author: Shaotu Jia
- * @copyright: Copyright [2017] <SHAOTU JIA>, All right reserved.
+ * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 #include <math.h>
 #include <optimizer.h>

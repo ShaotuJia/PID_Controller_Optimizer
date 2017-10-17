@@ -1,7 +1,7 @@
 /**
  * @file PID.cpp
  * @Brief This is the source file for class PID
- * @copyright, Shaotu Jia, All rights reserved
+ * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 
 #include <PID.h>

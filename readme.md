@@ -52,11 +52,11 @@ firefox html/index.html
 
 ## Motivation
 
-PID controller is a kind of feedback control system widely used in industry. The controller is usually operated by three gains Kp, Ki, Kd for proportion, integral, and differentiation, respectively. The settings of gains will determine the performance of PID controller. In some industry, the PID controller still need engineers manually setup; it often requires experience during tuning. This project will apply Gradient Descent method to optimize the performance of a PID controller. 
+PID controller is a kind of feedback control system widely used in industry. The controller is usually operated by three gains Kp, Ki, Kd for proportion, integral, and differentiation, respectively. The settings of gains will determine the performance of PID controller. In some industry, the PID controller still need engineers manually setup; it often requires experience during tuning. This project will apply Simulated Annealing method to optimize the performance of a PID controller. 
 
 ## Algorithm Description
 
- Simulated annealing is a local search algorithm inspired by statistical physics to appoximate the global optimum of a function. 
+ Simulated Annealing is a local search algorithm inspired by statistical physics to appoximate the global optimum of a function. 
  - ### Pseudocode(from 'Artificial Intelligence: A Modern Approach', Third Edition, page 126)
  ```
  function SIMULATED-ANNEALING(problem, schedule) returns a solution state

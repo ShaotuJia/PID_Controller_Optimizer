@@ -1,7 +1,7 @@
 /**
  * @file test.cpp
  * @brief Unit Testing for every class
- * @copyright Copyright [2017] <SHAOTU JIA> All Right Reserved
+ * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 
 

@@ -1,7 +1,7 @@
 /**
  * @file PID.hpp
  * @breif: This file is to implement the PID class
- * @copyright, Shaotu Jia, All rights reserved
+ * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 
 #ifndef INCLUDE_PID_H_

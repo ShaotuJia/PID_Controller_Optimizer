@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @brief: This is the main function of unit testing
- * @copyright, Shaotu Jia, All rights reserved
+ * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 
 #include <gtest/gtest.h>
