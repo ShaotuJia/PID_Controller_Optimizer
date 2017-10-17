@@ -1,7 +1,7 @@
 /**
  * @file app/main.cpp
  * @author Shaotu Jia
- * @copyright (C) 2007 Free Software Foundation, Inc.
+ * @copyright Copyright (C) 2007 Free Software Foundation, Inc.
  * @brief This main function is an example.
  * @description The example shows how to use Optimizer to get optimal solution
  * and plot the iteration result using external library matplotlib.h.
@@ -9,6 +9,10 @@
  * @details GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007
  * Everyone is permitted to copy and distribute verbatim copies
  * of this license document, but changing it is not allowed.
+ * @warning The simulated annealing is a probabilistic technique,
+ * thus, it does not guarantee to find the optimal solution every time.
+ * It would be the best way to use this program that running several time and
+ * pick up the best result.
  *
  * @mainpage[Abstract]
  * PID controller is a kind of feedback control system
@@ -18,7 +22,7 @@
  * In some industry, the PID controller still need engineers manually setup;
  * it often requires experience during tuning.
  * Simulated Annealing is a local search algorithm inspired by statistical physics
- * to appoximate the global optimum of a function.
+ * to approximate the global optimum of a function.
  * This project will apply Simulated Annealing method
  * to optimize the performance of a PID controller.
  */
