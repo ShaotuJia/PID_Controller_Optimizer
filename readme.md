@@ -2,6 +2,12 @@
 [![Build Status](https://travis-ci.org/ShaotuJia/PID_Controller_Optimizer.svg?branch=master)](https://travis-ci.org/ShaotuJia/PID_Controller_Optimizer)
 [![Coverage Status](https://coveralls.io/repos/github/ShaotuJia/PID_Controller_Optimizer/badge.svg?branch=master)](https://coveralls.io/github/ShaotuJia/PID_Controller_Optimizer?branch=master)
 ---
+### LICENSE 
+GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007
+
+Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
 ## Enacting and Measuring SIP
 The product log, time log, and defect log are written in google sheet. [click_here](https://docs.google.com/spreadsheets/d/1u9WEmkIhlhbIRRlmwj4HqYvlbm0llhUNIEqe1h8LvHQ/edit?usp=sharing)
