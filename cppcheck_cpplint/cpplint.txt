@@ -1,9 +1,7 @@
 Done processing app/main.cpp
 Done processing include/optimizer.cpp
-Done processing include/optimizer.h
-include/PID.cpp:None:  include/PID.cpp should include its header file include/PID.h  [build/include] [5]
 Done processing include/PID.cpp
-Done processing include/PID.h
 Done processing test/main.cpp
 Done processing test/test.cpp
-Total errors found: 1
+Done processing include/headers/optimizer.h
+Done processing include/headers/PID.h

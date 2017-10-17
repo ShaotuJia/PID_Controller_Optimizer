@@ -4,8 +4,8 @@
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 
-#ifndef INCLUDE_PID_H_
-#define INCLUDE_PID_H_
+#ifndef INCLUDE_HEADERS_PID_H_
+#define INCLUDE_HEADERS_PID_H_
 
 #include <iostream>
 #include <cmath>
@@ -41,5 +41,5 @@ class PID {
     void compute();
 };
 
-#endif  // INCLUDE_PID_H_
+#endif  // INCLUDE_HEADERS_PID_H_
 

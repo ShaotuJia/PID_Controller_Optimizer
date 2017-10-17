@@ -5,8 +5,8 @@
  * @author: Shaotu Jia
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
+#include "headers/optimizer.h"
 #include <math.h>
-#include <optimizer.h>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>

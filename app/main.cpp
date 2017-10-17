@@ -6,14 +6,15 @@
  * @description The example shows how to use Optimizer to get optimal solution
  * and plot the iteration result using external library matplotlib.h
  */
-
 #include <matplotlibcpp.h>
-#include <optimizer.h>
-#include <PID.h>
 #include <iostream>
 #include <memory>
 #include <algorithm>
 #include <functional>
+#include "headers/optimizer.h"
+#include "headers/PID.h"
+
+
 
 
 

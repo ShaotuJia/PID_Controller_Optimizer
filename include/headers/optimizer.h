@@ -6,10 +6,10 @@
  * @copyright (C) 2007 Free Software Foundation, Inc.
  */
 
-#ifndef INCLUDE_OPTIMIZER_H_
-#define INCLUDE_OPTIMIZER_H_
+#ifndef INCLUDE_HEADERS_OPTIMIZER_H_
+#define INCLUDE_HEADERS_OPTIMIZER_H_
 
-#include <PID.h>
+#include "PID.h"
 #include <vector>
 #include <memory>
 
@@ -51,4 +51,4 @@ class Optimizer {
 
 
 
-#endif  // INCLUDE_OPTIMIZER_H_
+#endif  // INCLUDE_HEADERS_OPTIMIZER_H_
